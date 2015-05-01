@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+source function.sh
+source colors.sh
+
+echo -en "${c_yellow}What do you want to know?:${c_reset}${c_red}"
+read choice
+echo -en "${c_reset}"
+num=num1to4()
+if ["${num}" == "1"]
+then
+  echo -e "${c_yellow}Yes${c_reset}"
+fi
+
+if ["${num}" == "2"]
+then
+  echo -e "${c_yellow}No${c_reset}"
+fi
+
+if ["${num}" == "3"]
+then
+  echo -e "${c_yellow}Maybe${c_reset}"
+fi
+
+if ["${num}" == "3"]
+then
+  echo -e "${c_yellow}Later${c_reset}"
+fi
+
+
+
+

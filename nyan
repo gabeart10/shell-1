@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source colors.sh
+
+
+while true
+do
+  echo -e "${c_red}Nyan"
+done

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+source colors.sh
+
+
+
+echo -en "${c_red}What is your name:${c_reset}${c_yellow}"
+read name
+echo -en "${c_reset}"
+echo -e "${c_blue}Hi ${name}"
+
+
+

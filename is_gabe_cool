@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo -n "[0;31mY[0m"
+echo -n "[0;34mE[0m"
+echo -n "[0;32mS[0m"
+echo ""
+

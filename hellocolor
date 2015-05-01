@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+source colors.sh
+
+echo -ne "${c_yellow}Hello "
+echo -ne "${c_red}World"
+echo -e " "
+
+
