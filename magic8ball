@@ -1,31 +1,27 @@
-#!/usr/bin/env bash
-source function.sh
-source colors.sh
-
-echo -en "${c_yellow}What do you want to know?:${c_reset}${c_red}"
-read choice
-echo -en "${c_reset}"
-num=num1to4()
-if ["${num}" == "1"]
-then
-  echo -e "${c_yellow}Yes${c_reset}"
-fi
-
-if ["${num}" == "2"]
-then
-  echo -e "${c_yellow}No${c_reset}"
-fi
-
-if ["${num}" == "3"]
-then
-  echo -e "${c_yellow}Maybe${c_reset}"
-fi
-
-if ["${num}" == "3"]
-then
-  echo -e "${c_yellow}Later${c_reset}"
-fi
-
-
-
-
+#!/bin/sh
+while true; do
+  answers="
+  It is certain\n
+  It is decidedly so\n
+  Without a doubt\n
+  Yes definitely\n
+  You may rely on it\n
+  As I see it, yes\n
+  Most likely\n
+  Outlook good\n
+  Yes\n
+  Signs point to yes\n
+  Reply hazy try again\n
+  Ask again later\n
+  Better not tell you now\n
+  Cannot predict now\n
+  Concentrate and ask again\n
+  Don't count on it\n
+  My reply is no\n
+  My sources say no\n
+  Outlook not so good\n
+  Very doubtful\n
+  "
+  echo "$SOL_red What is you question:$SOL_blue"; read question
+  echo $SOL_yellow$answers |sort -R | head -1
+done
