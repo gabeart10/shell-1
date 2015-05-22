@@ -1,0 +1,32 @@
+#!/bin/sh
+echo $SOL_clear
+repeat=5
+for ver in `seq 1 6`; do
+  for bad in `seq 1 12`; do
+    echo "Badger!"
+    sleep 0.4
+  done
+
+  if [ $repeat -lt 5 ]; then
+    for mush in `seq 1 2`; do
+      echo "Mushroom!"
+      sleep 1
+    done
+    repeat=`expr $repeat + 1`
+  else
+    snake_aski="
+        _____             _        _ \n
+       / ____|           | |      | |\n
+      | (___  _ __   __ _| | _____| |\n
+       \\___ \\| \\_ \\ / _\` \| \|/ / _ \\ |\n
+       ____) | | | | (_| |   <  __/_|\n
+      |_____/|_| |_|\\__,_|_|\\_\\___(_)\n
+    "
+    repeat=0
+    echo $snake_aski
+    sleep 4
+  fi
+  
+  echo $SOL_clear
+done
+

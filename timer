@@ -5,7 +5,8 @@ num3=0
 num4=0
 num5=0
 num6=0
-while true; do
+
+show () {
   echo ${SOL_clear}
   echo "${SOL_yellow}Weeks:${SOL_reset}"
   echo $num6
@@ -19,26 +20,36 @@ while true; do
   echo $num2
   echo "${SOL_yellow}Hundreths:${SOL_reset}"
   echo $num
+}
+
+while true; do
+  show
   sleep 0.01
+
   if [ $num -eq 100 ]; then
     num2=`expr $num2 + 1`
     num=0
   fi
+
   if [ $num2 -eq 60 ]; then
     num3=`expr $num3 + 1`
     num2=0
   fi
+
   if [ $num3 -eq 60 ]; then
     num4=`expr $num4 + 1`
     num3=0
   fi
+
   if [ $num4 -eq 24 ]; then
     num5=`expr $num5 + 1`
     num4=0
   fi
+
   if [ $num5 -eq 7 ]; then
     num6=`expr $num6 + 1`
     num5=0
   fi
+
   num=`expr $num + 1`
 done
