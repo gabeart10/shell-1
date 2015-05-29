@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+echo $SOL_clear
+echo "$SOL_red Welcome to Multi Table $SOL_reset"
+
+if [ -n "$1" ]; then
+  num=$1
+else
+  echo "$SOL_yellow Please Give a Num: $SOL_reset"
+  read num
+fi
+
+num1=12
+for i in `seq 12 -1 1`; do
+  echo "$SOL_green $num $SOL_reset X $SOL_yellow $num1 $SOL_reset = $SOL_red `expr $num \* $num1`$SOL_reset"
+  num1=`expr $num1 + -1`
+done
