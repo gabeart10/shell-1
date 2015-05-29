@@ -1,6 +1,6 @@
 #!/bin/sh
 echo $SOL_clear
-repeat=5
+repeat=0
 for ver in `seq 1 6`; do
   for bad in `seq 1 12`; do
     echo "Badger!"
