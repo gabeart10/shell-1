@@ -1,0 +1,33 @@
+#!/bin/sh
+
+echo "$SOL_red Welcome to Keeper $SOL_reset"
+
+echo "$SOL_yellow What is your name? $SOL_reset"; read name
+echo $SOL_clear
+name=`echo $name | tr '[:upper:]' '[:lower:]'`
+
+echo "$SOL_blue What is your quest? $SOL_reset"; read quest
+echo $SOL_clear
+
+if [ "$name" = lancelot -o "$name" = galahad ]; then
+  echo "$SOL_cyan What is your favorite color? $SOL_reset"; read question
+  echo "$SOL_green You may pass! $SOL_reset"
+elif [ "$name" = robin ]; then
+  echo "$SOL_cyan What...is the capital of Assyria? $SOL_reset"; read question
+  question=`echo $name | tr '[:upper:]' '[:lower:]'`
+  if [ "$question" = ashur ]; then
+    echo "$SOL_green You may pass! $SOL_clear"
+  else
+    echo "$SOL_red You dead! $SOL_reset"
+  fi
+elif [ "$name" = arthur ]; then
+  echo "$SOL_cyan  What...is the airspeed velocity of an unladen swallow? $SOL_reset"; read question
+  question=`echo $name | tr '[:upper:]' '[:lower:]'`
+  if [ "$question" = 24mph ]; then
+    echo "$SOL_green You may pass! $SOL_reset"
+  else 
+    echo "$SOL_red You dead! $SOL_reset"
+  fi
+else
+  echo "$SOL_green You may pass! $SOL_reset"
+fi
