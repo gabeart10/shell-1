@@ -1,0 +1,59 @@
+#!/bin/sh
+
+ask ()
+{
+  question="$1"
+  color="$2"
+  if [ "$color" = 1 ]; then
+    echo "$SOL_red $question $SOL_reset"
+  else
+    echo $question
+  fi
+  printf '> '
+  read answer
+  answer=`echo $answer | tr '[:upper:]' '[:lower:]'`
+}
+
+live ()
+{
+  echo "$SOL_green Off you go $SOL_reset"
+}
+
+die ()
+{
+  echo "$SOL_red You dead! $SOL_reset"
+}
+
+echo $SOL_clear
+
+ask "What is your name?" 1
+name=$answer
+
+echo $SOL_clear
+
+ask "$SOL_red What is your quest? $SOL_reset"
+
+echo $SOL_clear
+
+if [ "$name" = lancelot -o "$name" = galahad ]; then
+  ask "$SOL_red What is your favorite color? $SOL_clear"
+  live
+elif [ "$name" = robin ]; then
+  ask "$SOL_red What is the capital of Assyria? $SOL_reset"
+  if [ "$answer" = ashur ]; then
+    live
+  else
+    die
+  fi
+elif [ "$name" = arthur ]; then
+  ask "$SOL_red What is the airspeed velocity of an unladen swallow? $SOL_reset"
+  if [ "$answer" = 25mph ]; then
+    live
+  elif [ "$answer" = 'an African or a European swallow' ]; then
+    echo "$SOL_red Bridgekeeper: Well...I don't know...AAAAARRRRRRRRRRRRRRRGGGGGHHHH!!! $SOL_reset"
+  else
+    die
+  fi
+else
+  die
+fi

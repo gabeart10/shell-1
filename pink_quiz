@@ -1,0 +1,28 @@
+#!/bin/sh
+. function.sh
+
+echo $SOL_clear
+
+echo "Wecome to the Pink Quiz"
+
+q1() {
+  ask "What is the color of there fur? " "pink"
+}
+
+q2() { 
+  ask "What are they dancing on? " "rainbow"
+}
+
+q3() {
+  ask "What does their fur feel like? " "puppy"
+}
+
+questions="q1\nq2\nq3"
+while test -n "$questions"; do
+  question=`echo $questions |sort -R | head -1`
+
+  eval $question
+  if [ "$?" ]; then
+    questions=`echo $questions | awk "!/$question/"`
+  fi
+done
