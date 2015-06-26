@@ -7,22 +7,25 @@ echo "Wecome to the Pink Quiz"
 
 q1() {
   ask "What is the color of there fur? " "pink"
+  return $?
 }
 
 q2() { 
   ask "What are they dancing on? " "rainbow"
+  return $?
 }
 
 q3() {
   ask "What does their fur feel like? " "puppy"
+  return $?
 }
 
 questions="q1\nq2\nq3"
 while test -n "$questions"; do
-  question=`echo $questions |sort -R | head -1`
-
-  eval $question
-  if [ "$?" ]; then
-    questions=`echo $questions | awk "!/$question/"`
+  question=`echo "$questions" |sort -R | head -1`
+  eval "$question"
+  if [ $? -eq 0 ]; then
+    questions=`echo "$questions" | awk "!/$question/"`
   fi
 done
+echo 'I am done'
